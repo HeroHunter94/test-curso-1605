@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promedio</title>
+    <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+    }
+    input {
+      margin: 5px;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+    <form>
+        <h2>Ingrese tres notas (entre 1 y 10)</h2>
+        <p><label for = "nota1">Nota1<input type ="number" id = "nota1"></label></p>
+        <p><label for = "nota2">Nota2<input type ="number" id = "nota2"></label></p>
+        <p><label for = "nota3">Nota3<input type ="number" id = "nota3"></label></p>
+        <p><button type ="button" onclick="promedio()"> Promedio</button></p>
+        <p id="promedio"></p>
+     </form>
+    <script>
+        function promedio() {
+            const NOTA1 = document.getElementById("nota1");
+            const NOTA2 = document.getElementById("nota2");
+            const NOTA3 = document.getElementById("nota3");
+            const RESULTADO = document.getElementById("promedio");
+
+            let nota1 = Number(NOTA1.value);
+            let nota2 = Number(NOTA2.value);
+            let nota3 = Number(NOTA3.value);
+
+            if (nota1 < 1 || nota1 > 10 || nota2 < 1 || nota2 > 10 || nota3 < 1 || nota3 > 10) {
+                RESULTADO.innerHTML = "<span class='error'>Las notas deben estar entre 1 y 10</span>";
+                return;
+            }
+
+            let promedio = (nota1 + nota2 + nota3) / 3;
+            RESULTADO.innerHTML = "El promedio es: " + promedio.toFixed(2);
+        }
+    </script>
+</body>
+
+</html>
+
